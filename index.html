@@ -1,37 +1,49 @@
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Mocha Tests</title>
     <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Enjoy the game!</h1>
+    <h1>Enjoy the game!</h1>
 
-<div class="buttonRest" id="buttonRest" onclick = "rest(hero)">
-<img id="inn" src="images/2000px-Tux_Paint_inn.svg.png" alt="house" height="200" width="200" />
-</div>
+    <div class="row">
+        <div class="column">
 
-<div class="buttonWeapon" id="buttonWeapon" onclick = "pickUpItem(hero, {type: "dagger", damage: 2})">
-    <img id="dagger" src="images/index.png" alt="knife" height="200" width="200" />
-</div>
+            <div class="buttonRest" id="buttonRest" onclick="rest(hero)">
+                <img id="inn" src="images/2000px-Tux_Paint_inn.svg.png" alt="house" height="200" width="200" />
+            </div>
 
-<div class="equipment" id="equipWeapon">
-    <img id="bag" src="images/2000px-Mcol_money_bag.svg.png" alt="bag" height="200" width="200" />
-</div>
+            <div class="buttonWeapon" id="buttonWeapon" onclick="pickUpItem(hero, {type: " dagger ", damage: 2})">
+                <img id="dagger" src="images/index.png" alt="knife" height="200" width="200" />
+            </div>
+
+            <div class="equipment" id="equipWeapon">
+                <img id="bag" src="images/2000px-Mcol_money_bag.svg.png" alt="bag" height="200" width="200" />
+            </div>
+
+        </div>
+    </div>
 
 
+    <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
+    <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
+    <div id="mocha"></div>
 
-  <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
-  <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
-  <div id="mocha"></div>
+    <script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+    <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sinon@3/pkg/sinon.js"></script>
+    <script>
+        mocha.setup('bdd')
 
-  <script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
-  <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sinon@3/pkg/sinon.js"></script>
-  <script>mocha.setup('bdd')</script>
-  <script src="YOUR_JAVASCRIPT_HERE.js"></script>
-  <script src="game_logic.test.js"></script>
+    </script>
+    <script src="YOUR_JAVASCRIPT_HERE.js"></script>
+    <script src="game_logic.test.js"></script>
 
 </body>
+
 </html>
